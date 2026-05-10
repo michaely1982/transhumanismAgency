@@ -24,6 +24,7 @@ dist-ssr
 .cache
 .parcel-cache
 .vite
+.vercel
 coverage
 
 # Local overrides

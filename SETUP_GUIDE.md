@@ -57,3 +57,45 @@ npm run dev
 - Buka `/contact` lalu kirim brief percobaan
 - Buka `/login` dan masuk dengan akun admin
 - Cek `/admin` untuk memastikan inquiry muncul
+
+## 7. Deploy ke Vercel
+
+### Setting di Vercel
+
+- Import repository ini ke Vercel
+- Framework preset: `Vite`
+- Build command: `npm run build`
+- Output directory: `dist`
+
+### Environment Variables
+
+Tambahkan semua variable ini di:
+
+- `Project Settings`
+- `Environment Variables`
+
+Isi untuk minimal environment:
+
+- `Production`
+- `Preview`
+
+Daftar variable:
+
+```env
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+```
+
+### Catatan routing
+
+File `vercel.json` sudah disiapkan agar route seperti `/contact`, `/login`, dan `/admin`
+tetap bisa dibuka langsung di Vercel tanpa error 404.
+
+### Setelah deploy
+
+- Redeploy setiap kali ada perubahan Environment Variables
+- Pastikan domain Vercel sudah ditambahkan ke daftar authorized domain di Firebase Authentication bila login admin bermasalah
